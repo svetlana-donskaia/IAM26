@@ -28,7 +28,6 @@ int main()
     while (flin >> a)
     {
         sumsquare += ((a - mean) * (a - mean));
-        ++n;
     }
 
     var = sumsquare / n;
