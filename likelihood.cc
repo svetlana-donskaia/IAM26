@@ -53,7 +53,7 @@ int main()
     {
         double mu = 0.01 * i;
         double result = prob(data, mu);
-        fout << mu << " " << prob(data, mu) << endl;
+        fout << mu << " " << result << endl;
     }
 
     ofstream fout2("nll.txt");
@@ -61,7 +61,7 @@ int main()
     {
         double mu = 0.01 * i;
         double result = nll(data, mu);
-        fout2 << mu << " " << nll(data, mu) << endl;
+        fout2 << mu << " " << result << endl;
     }
 
     ofstream fout3("deltanll.txt");
