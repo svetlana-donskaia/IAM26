@@ -118,5 +118,27 @@ int main()
     cout << "Uncertainty (sigma / sqrt(N)): " << sigma / sqrt(N) << endl;
     cout << "Uncertainty (sqrt(mu_hat / N)): " << sqrt(mu_hat / N) << endl;
 
+// Part e
+double nll_fit = nll(data, mu_hat);
+double nll_sat = 0.0;
+
+for (int k : data)
+{
+    if (k == 0)
+    {
+        continue;
+    }
+    nll_sat += -2 * log(poisson(k, k));
+}
+
+double test = nll_fit - nll_sat;
+double ndof = N - 1;
+double z = (test - ndof) / sqrt(2 * ndof);
+
+cout << "\nPart e)" << endl;
+cout << "-2 ln Lambda = " << test << endl;
+cout << "Degrees of freedom = " << ndof << endl;
+cout << "z = " << z << endl;
+
     return 0;
 }
